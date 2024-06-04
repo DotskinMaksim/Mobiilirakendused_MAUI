@@ -30,7 +30,7 @@ public partial class DBListPage : ContentPage
         await Navigation.PushAsync(friendPage);
     }
     [Obsolete]
-    private void SortName(object sender, EventArgs e)
+    private void ShowName(object sender, EventArgs e)
     {
         friendsList.ItemTemplate = new DataTemplate(() =>
         {
@@ -40,7 +40,7 @@ public partial class DBListPage : ContentPage
         });
     }
     [Obsolete]
-    private void SortEmail(object sender, EventArgs e)
+    private void ShowEmail(object sender, EventArgs e)
     {
         friendsList.ItemTemplate = new DataTemplate(() =>
         {
@@ -50,7 +50,7 @@ public partial class DBListPage : ContentPage
         });
     }
     [Obsolete]
-    private void SortPhone(object sender, EventArgs e)
+    private void ShowPhone(object sender, EventArgs e)
     {
         friendsList.ItemTemplate = new DataTemplate(() =>
         {
@@ -60,7 +60,7 @@ public partial class DBListPage : ContentPage
         });
     }
     [Obsolete]
-    private void SortAddress(object sender, EventArgs e)
+    private void ShowAddress(object sender, EventArgs e)
     {
         friendsList.ItemTemplate = new DataTemplate(() =>
         {
