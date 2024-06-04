@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="FriendsListPage"
+             x:Class="MAUI_project.Views.FriendsListPage"
+             >
+    <VerticalStackLayout>
+        <Button Text="Lisa" Command="{Binding CreateFriendCommand}"/>
+        <ListView x:Name="booksList" ItemsSource="{Binding Friends}"
+                  SelectedItem="{Binding SelectedFriend, Mode=TwoWay}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium"/>
+                                <Label Text="{Binding Email}" FontSize="Small"/>
+                                <Label Text="{Binding Phone}" FontSize="Small"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

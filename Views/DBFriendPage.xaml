@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_project.Views.DBFriendPage"
+             Title="Sõbrad-muuda">
+    <StackLayout>
+        <Label Text="Nimi"/>
+        <Entry Text="{Binding Name}" x:Name="nimii"/>
+        <Label Text="Email"/>
+        <Entry Text="{Binding Email}" Keyboard="Email"/>
+        <Label Text="Telefon"/>
+        <Entry Text="{Binding Phone}" Keyboard="Telephone"/>
+        <Label Text="Aadress"/>
+        <Entry Text="{Binding Address}" Keyboard="Text"/>
+        <HorizontalStackLayout>
+            <Button Text="Salvesta" Clicked="SaveFriend" WidthRequest="130" TextColor="White"/>
+            <Button Text="Kustuta" Clicked="DeleteFriend" WidthRequest="130" TextColor="White"/>
+            <Button Text="Tühista" Clicked="Cancel" WidthRequest="130" TextColor="White"/>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>
