@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_project.Views.EndPage"
+             Title="EndPage">
+
+    <ContentPage.Resources>
+        <Style x:Key="WinnerLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style x:Key="WinnerFrameStyle" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HasShadow" Value="True"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="FillAndExpand">
+
+            <Image
+                Source="game_logo"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                x:Name="victoryLabel"
+                Text=""
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="movesLabel"
+                Text=""
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <Button
+                x:Name="writeVictoryButton"
+                Text="Write down the victory"
+                Clicked="WriteDownTheVictory"
+                HorizontalOptions="Center" />
+            <Button
+                x:Name="newGameButton"
+                Text="New game"
+                Clicked="NewGame"
+                HorizontalOptions="Center" />
+            <Label
+                Text="Player statistics"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            <ListView x:Name="playersListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Style="{StaticResource WinnerFrameStyle}">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" Style="{StaticResource WinnerLabelStyle}" FontAttributes="Bold"/>
+                                    <Label x:Name="victoriesLabel" Text="Victories count:" Style="{StaticResource WinnerLabelStyle}"/>
+                                    <Label Text="{Binding VictoryCount}" Style="{StaticResource WinnerLabelStyle}" FontAttributes="Bold"/>
+                                    <Label x:Name="lastWinLabel" Text="Last win:" Style="{StaticResource WinnerLabelStyle}"/>
+                                    <Label Text="{Binding LastWin, StringFormat='{0:MM/dd/yyyy}'}" Style="{StaticResource WinnerLabelStyle}" FontAttributes="Bold"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_project.Views.SetGameSettingsPage"
+             >
+    <VerticalStackLayout
+        Padding="1"
+        VerticalOptions="Center">
+        <Label 
+            Text="Game settings"
+            SemanticProperties.HeadingLevel="Level3"
+            FontSize="32"
+            HorizontalOptions="Center" />
+        
+        <Entry x:Name="player1Entry" Placeholder="Player 1 Name" />
+        <Entry x:Name="player2Entry" Placeholder="Player 2 Name" />
+
+        <Picker x:Name="deckSizePicker" Title="Select Deck Size">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>24</x:String>
+                    <x:String>36</x:String>
+                    <x:String>52</x:String>
+                    <!--<x:String>8</x:String>-->
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+            <Label Text="Reverse Mode" VerticalOptions="Center" />
+            <Switch x:Name="reverseModeSwitch" HorizontalOptions="End"
+                  />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+            <Label Text="Make the lowest card in rank stronger than an ace" VerticalOptions="Center" />
+            <Switch x:Name="lowerCardModeSwitch" HorizontalOptions="End"
+                    />
+        </HorizontalStackLayout>
+        
+        <Button
+                x:Name="EnterButton"
+                Text="Enter"
+                Clicked="StartGame"
+                HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

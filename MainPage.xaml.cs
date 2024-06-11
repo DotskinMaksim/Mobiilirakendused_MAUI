@@ -1,72 +1,24 @@
-﻿namespace MAUI_project;
-
-public partial class MainPage : ContentPage
+﻿using MAUI_project.Views;
+using MAUI_project.Models;
+namespace MAUI_project
 {
-	int count = 0;
+    public partial class MainPage : ContentPage
+    {
+        public static ContentPage SettingsPage { get; set; }
 
-	public MainPage()
-	{
-		InitializeComponent();
-
-
-		CarouselView carouselView=new CarouselView
-		{
-			VerticalOptions=LayoutOptions.Center,
-		};
-
-		carouselView.ItemsSource = new List<Product> 
-		{ 
-			new Product{Name="Carrot",Description="Dick1",Image="carrot.jpg"},
-			new Product{Name="Cucmber",Description="Dick2",Image="cucumber.jpg"},
-			new Product{Name="Tomato",Description="Dick3",Image="tomato.jpg"},
-
-        };
-		carouselView.ItemsLayout=new LinearItemsLayout(ItemsLayoutOrientation.Vertical);
-        carouselView.ItemTemplate = new DataTemplate(() =>
+        public MainPage()
         {
-            Label header = new Label
-            {
-                FontAttributes = FontAttributes.Bold,
-                HorizontalOptions = LayoutOptions.Center,
-                FontSize = 18
-            };
-            header.SetBinding(Label.TextProperty, "Name");
+            InitializeComponent();
+            SettingsPage = new SetGameSettingsPage();
 
-            Image image = new Image { WidthRequest = 150, HeightRequest = 150 };
-            image.SetBinding(Image.SourceProperty, "Image"); 
+        }
 
-            Label description = new Label { HorizontalTextAlignment = TextAlignment.Center };
-            description.SetBinding(Label.TextProperty, "Description");
-
-            StackLayout stackLayout = new StackLayout { Children = { header, image, description } };
-            Frame frame = new Frame { Content = stackLayout };
-
-			return frame;
-        });
-
-        Content = carouselView;
-	}
-
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-
-		Random random= new Random();
-
-		int r, g, b;
-		r=random.Next(1,255);
-		g=random.Next(1,255);
-		b=random.Next(1,255);
-        CounterBtn.BackgroundColor = Color.FromRgb(r,g,b);
+        private async void StartButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(SettingsPage);
+            //await Navigation.PushAsync(new EndPage());
+        }
 
 
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    }
 }
-

@@ -1,0 +1,85 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_project.Views.GamePage"
+            >
+    <StackLayout Orientation="Vertical"
+                 Padding="10"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 >
+        <Frame
+            x:Name="player1ValuesFrame"
+            
+            >
+             <HorizontalStackLayout
+                x:Name="player1Values"
+                >
+                <Image
+                HorizontalOptions="Start"
+                Source="player"
+                WidthRequest="30"
+                HeightRequest="30"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <StackLayout x:Name="player1CardsLayout"
+                     Orientation="Horizontal"
+                     Spacing="10"
+                     Padding="10"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand">
+            <!--<Label
+                x:Name="player1CardsCount"
+                SemanticProperties.HeadingLevel="Level1"
+                />-->
+        </StackLayout>
+
+        <StackLayout x:Name="slotsLayout"
+                     Orientation="Horizontal"
+                     Spacing="10"
+                     Padding="10"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand">
+            <HorizontalStackLayout
+                x:Name="playedCardsLayout"/>
+        </StackLayout>
+
+        <StackLayout x:Name="player2CardsLayout"
+                     Orientation="Horizontal"
+                     Spacing="10"
+                     Padding="10"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand">
+             <!--<Label
+                x:Name="player2CardsCount"
+                SemanticProperties.HeadingLevel="Level1"
+                />-->
+        </StackLayout>
+        <Frame
+            x:Name="player2ValuesFrame"
+            >
+            <HorizontalStackLayout
+                x:Name="player2Values">
+                <Image
+                HorizontalOptions="Start"
+                Source="player"
+                WidthRequest="30"
+                HeightRequest="30"
+                />
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button
+            Padding="1"
+            Clicked="ShowRules"
+            Text="?"
+            TextColor="White"
+            x:Name="gameRulesButton"
+            WidthRequest="30"
+            HeightRequest="30"
+            CornerRadius="15"
+            HorizontalOptions="End"
+            VerticalOptions="End"/>
+        
+    </StackLayout>
+</ContentPage>
